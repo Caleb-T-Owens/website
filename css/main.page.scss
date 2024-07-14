@@ -1,0 +1,12 @@
+@use "module.scss";
+
+.foo {
+    > bar {
+        background-color: module.$foo;
+        @extend .other;
+    }
+}
+
+.other {
+    color: black;
+}
