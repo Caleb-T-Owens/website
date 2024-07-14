@@ -11,7 +11,7 @@
     "build": "pnpm build:assets && pnpm build:ts",
     "build:watch": "nodemon -e ts,ejs,scss --ignore output --exec \"pnpm build\"",
     "watch": "pnpm build:watch & pnpm serve",
-    "serve": "php -S localhost:3030 -t output",
+    "serve": "pnpm live-server output --watch=output --port=3030",
     "clean": "rm -rf output"
   },
   "keywords": [],
@@ -23,6 +23,7 @@
     "@types/node": "^20.14.10",
     "ejs": "^3.1.10",
     "glob": "^11.0.0",
+    "live-server": "^1.2.2",
     "nodemon": "^3.1.4",
     "sass-embedded": "^1.77.8",
     "serve-static": "^1.15.0",
