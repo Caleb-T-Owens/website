@@ -1,13 +1,11 @@
 {
-    "compilerOptions": {
-        "target": "ES2022",
-        "module": "ES2022",
-        "moduleResolution": "Bundler",
-        "outDir": "output",
-        "strict": true,
-        "alwaysStrict": true
-    },
-    "include": [
-        "src/**/*"
-    ]
+	"compilerOptions": {
+		"target": "ES2022",
+		"module": "ES2022",
+		"moduleResolution": "Bundler",
+		"outDir": "output",
+		"strict": true,
+		"alwaysStrict": true
+	},
+	"include": ["src/**/*"]
 }
