@@ -12,7 +12,7 @@ if (existsSync("./output")) {
 
 console.log("Rendering HTML")
 
-const pages = glob.globSync("html/**/*.page.ejs")
+const pages = glob.globSync("src/**/*.page.ejs")
 
 pages.forEach((pagePath) => {
     renderFile(pagePath, (error, result) => {
@@ -31,14 +31,14 @@ pages.forEach((pagePath) => {
 
 console.log("Rendering SCSS")
 
-const stylesheets = glob.globSync("css/**/*.page.scss")
+const stylesheets = glob.globSync("src/**/*.page.scss")
 
 stylesheets.forEach((stylesheetPath) => {
     try {
         const result = compile(stylesheetPath)
 
-        const newPath = stylesheetPath.replace(/\.page\.scss$/, '.css')
-        const directory = stylesheetPath.split('/').slice(0, -1).join('/')
+        const newPath = stylesheetPath.replace(/\.page\.scss$/, '.css').split('/').slice(1).join('/')
+        const directory = stylesheetPath.split('/').slice(1, -1).join('/')
 
         mkdirSync(`./output/${directory}`, { recursive: true })
         writeFileSync(`./output/${newPath}`, result.css)
