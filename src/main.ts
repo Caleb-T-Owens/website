@@ -1,2 +1,2 @@
 import "./other.js"
-console.log("main")
+console.log("main foobar")

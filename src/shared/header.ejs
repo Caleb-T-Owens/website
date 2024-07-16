@@ -1,8 +1,14 @@
 <!-- Warning!! This file is ignored by prettier -->
 <!doctype html>
-<html>
+<html lang="en">
 	<head>
 		<meta charset="UTF-8" />
 		<meta name="viewport" content="width=device-width, initial-scale=1" />
 		<title><%= typeof title === "undefined" ? "Caleb Owens" : title %></title>
+		<link href="/main.css" rel="stylesheet">
 	</head>
+
+	<body>
+		<h1 class="title">Caleb Owens' Website</h1>
+		<%- include("fontSizeWidget/font-size.ejs") -%>
+		<%- include("nav") -%>

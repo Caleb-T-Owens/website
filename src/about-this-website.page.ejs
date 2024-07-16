@@ -1,9 +1,174 @@
 <%- include('shared/header') -%>
-<h1>About this website</h1>
 
-<p>
-	Given the year is 2024, the construction of this website is probably
-	considered "weird" by most standards. As such, I thought it might be worth
-	while sharing some of the reasons behind why I chose to build it this way.
-</p>
+<p>Last updated <time datetime="2024-07-15">15th July 2024</time></p>
+
+<article>
+	<h1>About this website</h1>
+
+	<section>
+		<h2>The license</h2>
+
+		<p>
+			This website has its source code publicly available. The source code has
+			been published under a modified version of the very popular MIT license.
+		</p>
+
+		<a href="https://github.com/Caleb-T-Owens/website">View the source code</a>
+		<br />
+		<a href="https://github.com/Caleb-T-Owens/website/blob/main/LICENSE"
+			>View the license</a
+		>
+
+		<h3>What are the modifications?</h3>
+
+		<p>
+			I chose to modify the MIT license in order to add protection for anyone
+			mentioned in the website. Any published, redistributed, sublicensed, or
+			sold copies of the source code or website must remove any information
+			about any person mentioned on the website.
+		</p>
+
+		<p>
+			If you have any questions about the license, feel free to contact me at
+			<a href="mailto:license@intherain.cloud">license@intherain.cloud</a>.
+		</p>
+	</section>
+
+	<section>
+		<h2>The stack</h2>
+
+		<p>
+			Given the year is 2024, the construction of this website is probably
+			considered "weird" by most standards. As such, I thought it might be worth
+			while sharing some of the reasons behind why I chose to build it this way.
+		</p>
+
+		<p>
+			This website can reasonably be thought of as the modern version of an old
+			HTML/CSS/JavaScript website. This website is able to be run on a static
+			file server. That said, there are downsides to writing pure HTML, CSS, and
+			JavaScript. As such, I've opted to use some alternatives that can be
+			compiled into their web-friendly alternatives.
+		</p>
+
+		<h3>Why not a modern framework?</h3>
+
+		<p>
+			Modern web frameworks are wonderful things which can be used to build
+			websites that if done well are performant and charming to use. I very much
+			enjoy working with <a href="https://svelte.dev/">Svelte</a> and
+			<a href="https://react.dev/">React</a>. However, I have two key
+			requirements for this website's tech stack.
+		</p>
+
+		<p>
+			Firstly, it should require very little maintenance. When your website has
+			run time dependencies, you need to be able to account for each one and
+			keep up to date with any upgrades or security patches. In general,
+			frameworks of any kind have large trees of sub-dependencies which means
+			that the frequency of package bumps also needs to be higher.
+		</p>
+
+		<p>
+			Secondly, I want to be able to embed other projects into my website
+			somewhat like a
+			<a href="https://micro-frontends.org/">micro-frontend architecture</a>.
+			This means that I need to have lots of control over the assets on each
+			page. I don't want to end up bloating every page on the website by
+			introducing some widget or tool on another page. Some frameworks like
+			<a href="https://nextjs.org/">Next.JS</a> have started implementing
+			<a
+				href="https://nextjs.org/docs/app/building-your-application/routing/linking-and-navigating#1-code-splitting"
+				>code splitting</a
+			>
+			which helps alleviate the problem, but its still not a perfect science.
+			Furthermore, it is often times harder to embed other arbitrary code in a
+			page, as the widget may not play well with the framework's dom diffing and
+			rendering lifecycle.
+		</p>
+	</section>
+
+	<section>
+		<h2>The tech I chose to power the site</h2>
+
+		<h3>Templating: <a href="https://ejs.co/">EJS</a></h3>
+
+		<p>
+			HTML is a wonderful markup language which is incredibly expressive,
+			allowing the user to encode a large amount of semantic meaning as well as
+			providing helpful information to screen readers. I didn't want to move to
+			a less expressive markup language like markdown or
+			<a href="https://mdxjs.com/">MDX</a> as its much less flexible and in the
+			case of MDX, is often best suited to have some form of frontend framework
+			for rendering components. This left me in the land of HTML templating
+			languages. When picking one of these, my primary goal was to find
+			something that I could use with minimal setup and for it to have little or
+			no awareness of the HTML syntax. If I was building my assets with ruby, my
+			first choice would have been
+			<a href="https://rubyapi.org/3.3/o/erb">ERB</a>, but having chosen to use
+			JavaScript as the language to script my asset compilation, that would have
+			been more complicated. I ended up going for
+			<a href="https://ejs.co/">EJS</a>, which uses a syntax that is very
+			similar to ERB, has built in support for including other .ejs fragments,
+			and has an easy to use API.
+		</p>
+
+		<h3>Styling: <a href="https://sass-lang.com/">SCSS</a></h3>
+
+		<p>
+			Writing pure CSS is becoming more and more compelling by the day.
+			Especially with
+			<a href="https://developer.mozilla.org/en-US/docs/Web/CSS/CSS_nesting"
+				>nested styles</a
+			>
+			now being
+			<a href="https://caniuse.com/css-nesting"
+				>supported by all major browsers</a
+			>. That said, complete support is still very much not complete. There are
+			also nice things like
+			<a href="https://sass-lang.com/documentation/at-rules/mixin/">macros</a>,
+			<a href="https://sass-lang.com/documentation/variables/"
+				>compile time variables</a
+			>,
+			<a href="https://sass-lang.com/documentation/interpolation/">extends</a>,
+			and
+			<a href="https://sass-lang.com/documentation/at-rules/use/">modules</a>
+			that don't yet exist in modern CSS. In a year's time, I very well may end
+			up using regular CSS, but at the minute, in my mind its still just not
+			quite there.
+		</p>
+
+		<h3>Scripting: <a href="https://www.typescriptlang.org/">TypeScript</a></h3>
+
+		<p>
+			Its JavaScript, but with types! What more could you want? Well,
+			<a href="https://www.purescript.org/">PureScript</a> is pretty attractive,
+			but I would be concerned about being able to include
+			<a href="https://en.wikipedia.org/wiki/Pure_function#Impure_functions"
+				>impure</a
+			>
+			libraries. I'm also very familiar with TypeScript, and am aware of many of
+			the
+			<a href="https://en.wiktionary.org/wiki/footgun#Noun">foot-guns</a> which
+			it provides. TypeScript is also easy to set up in a very simple manner,
+			making it easy to use without a fancy build tool.
+		</p>
+
+		<h3>Build tools?</h3>
+
+		<p>
+			There are lots of bundlers and build tools out there, with
+			<a href="https://vitejs.dev/">vite</a> being a very attractive tool, but I
+			wanted to manually orchestrate my build process, giving me much more
+			control, and meaning I'm not bound by any limitations a particular one
+			might provide.
+		</p>
+
+		<p>
+			My setup firstly runs a small build.js script that I wrote, which
+			orchestrates the template rendering and SCSS compilation. I then call tsc
+			which takes care of the TypeScript code.
+		</p>
+	</section>
+</article>
 <%- include('shared/footer') -%>
