@@ -36,6 +36,7 @@ input[type="radio"] {
 
 #font-size-selector {
 	width: fit-content;
+	margin-bottom: 1rem;
 
 	> div {
 		display: inline-flex;
@@ -47,8 +48,6 @@ input[type="radio"] {
 			margin-right: 0.5rem;
 		}
 	}
-
-	margin-bottom: 1rem;
 }
 
 .page-header {
@@ -57,10 +56,24 @@ input[type="radio"] {
 
 	> nav {
 		display: inline-block;
+		vertical-align: top;
 
 		padding-right: 1rem;
 		padding-left: 1rem;
 		padding-bottom: 1rem;
+
+		> ul {
+			list-style-type: none;
+			padding-left: 0;
+
+			> li {
+				margin-bottom: 0.5rem;
+
+				&:last-child {
+					margin-bottom: 0;
+				}
+			}
+		}
 	}
 }
 
