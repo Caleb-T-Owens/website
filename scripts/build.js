@@ -15,7 +15,7 @@ console.log("Rendering HTML")
 const pages = glob.globSync("src/**/*.page.ejs")
 
 pages.forEach((pagePath) => {
-	renderFile(pagePath, (error, result) => {
+	renderFile(pagePath, {}, { root: "./src/" }, (error, result) => {
 		if (error) {
 			console.error(`Failed to render page ${pagePath}`, error)
 		}
