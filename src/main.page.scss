@@ -10,8 +10,15 @@
 	font-family: Georgia, 'Times New Roman', Times, serif;
 }
 
-p, a, legend, label, time {
+p, a, legend, label, time, i, li {
 	font-family: Arial, Helvetica, sans-serif;
+}
+
+// Don't style links inside headers
+h1, h2, h3, h4, h5, h6 {
+	a {
+		font-family: Georgia, 'Times New Roman', Times, serif;
+	}
 }
 
 html {

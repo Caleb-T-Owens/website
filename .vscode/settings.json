@@ -4,7 +4,8 @@
 		"*.ejs": "html"
 	},
 	"[html]": {
-		"editor.defaultFormatter": "esbenp.prettier-vscode"
+		"editor.defaultFormatter": "esbenp.prettier-vscode",
+		"editor.tabSize": 1
 	},
 	"[json]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
@@ -24,5 +25,15 @@
 	"[javascript]": {
 		"editor.defaultFormatter": "esbenp.prettier-vscode"
 	},
-	"cSpell.words": ["fangled", "gazza", "ladra", "templating", "TTRPG", "TTRPGs"]
+	"cSpell.words": [
+		"calebowens",
+		"DCSS",
+		"fangled",
+		"gazza",
+		"Krita",
+		"ladra",
+		"templating",
+		"TTRPG",
+		"TTRPGs"
+	]
 }
